@@ -5,6 +5,7 @@ lab 1_1
 '''
 
 def vote_menu():
+    print(test)
     print('--------------------')
     print('VOTE MENU')
     print('--------------------')
