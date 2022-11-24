@@ -5,11 +5,6 @@ lab 1_1
 '''
 
 def vote_menu():
-    print('--------------------')
-    print('VOTE MENU')
-    print('--------------------')
-    print('v - vote')
-    print('x - exit')
     option = input('Option:').strip().lower()
     while option != "v" and option != "x":
         option = input('Invalid: (v\\x)').strip().lower()
