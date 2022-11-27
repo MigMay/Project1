@@ -1,6 +1,14 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from votesubmitted import *
 
+'''
+when radio button selected and submit button pushed, count vote for candidate and go to window 3
+when details button pushed, open window to show details
+when only submit button pushed, prompt user to select candidate
+
+
+'''
+
 
 class Ui_VoteMenu(object):
     def __init__(self):
@@ -220,9 +228,11 @@ class Ui_VoteMenu(object):
         print(f' CA {self.voteForCandidateA}')
         print(f' CA {self.voteForCandidateB}')
         print(f' CA {self.voteForCandidateC}')
-        # self.close()
-        nextWindow = Ui_VoteSubmitted()
-        nextWindow.show()
+
+        self.window3 = QtWidgets.QDialog()
+        self.ui = Ui_VoteSubmitted()
+        self.ui.setupUi(self.window3)
+        self.window3.show()
 
 
 if __name__ == "__main__":

@@ -1,6 +1,10 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+'''
+start another vote, open candidate selection window
+show results pushed, open results window and take data with flow
 
+'''
 class Ui_VoteSubmitted(object):
     def setupUi(self, VoteSubmitted):
         VoteSubmitted.setObjectName("VoteSubmitted")
