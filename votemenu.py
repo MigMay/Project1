@@ -12,6 +12,12 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_VoteMenu(object):
+    def __init__(self):
+        self.voteForCandidateA = None
+        self.voteForCandidateB = None
+        self.voteForCandidateC = None
+        self.gridLayout = None
+
     def setupUi(self, VoteMenu):
         VoteMenu.setObjectName("VoteMenu")
         VoteMenu.resize(940, 888)
@@ -172,7 +178,6 @@ class Ui_VoteMenu(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.radioButton.sizePolicy().hasHeightForWidth())
         self.radioButton.setSizePolicy(sizePolicy)
-        self.radioButton.setText("")
         self.radioButton.setObjectName("radioButton")
         self.gridLayout_3.addWidget(self.radioButton, 1, 1, 1, 1)
         self.radioButton_2 = QtWidgets.QRadioButton(self.frame_4)
@@ -197,6 +202,7 @@ class Ui_VoteMenu(object):
         self.label_15.setText(_translate("VoteMenu", "Let\'s start voting..."))
         self.label_16.setText(_translate("VoteMenu", "You are apart of the College of IS&T voting pool. Please select your vote below. "))
         self.pushButton_9.setText(_translate("VoteMenu", "Submit Vote"))
+        self.pushButton_9.clicked.connect(self.selectCandidate)
         self.pushButton_5.setText(_translate("VoteMenu", "Details"))
         self.label_27.setText(_translate("VoteMenu", "aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus imperdiet nulla"))
         self.label_26.setText(_translate("VoteMenu", "Patricia A. Spiegel"))
@@ -208,6 +214,22 @@ class Ui_VoteMenu(object):
         self.label_33.setText(_translate("VoteMenu", "Patricia A. Spiegel"))
         self.label_35.setText(_translate("VoteMenu", "Vote"))
 
+    def selectCandidate(self):
+        self.pushButton_9.setText("submitted")
+        self.voteForCandidateA = 0
+        self.voteForCandidateB = 0
+        self.voteForCandidateC = 0
+
+
+        if self.radioButton.isChecked():
+            self.voteForCandidateA += 1
+        if self.radioButton_2.isChecked():
+            self.voteForCandidateB += 1
+        if self.radioButton_3.isChecked():
+            self.voteForCandidateC += 1
+        print(f' CA {self.voteForCandidateA}')
+        print(f' CA {self.voteForCandidateB}')
+        print(f' CA {self.voteForCandidateC}')
 
 if __name__ == "__main__":
     import sys

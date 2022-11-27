@@ -6,6 +6,7 @@ class VoteMenu(QWidget):
     def __init__(self):
         super().__init__()
         self.candidate_window = PickCandidate()
+        self.candidate_window.resize(500, 500)
         self.setUpWidgets()
 
     def setUpWidgets(self):
@@ -42,6 +43,9 @@ class PickCandidate(QWidget):
         main_layout.addWidget(john_button)
         main_layout.addWidget(jane_button)
         self.setLayout(main_layout)
+        self.resize(400, 500
+
+
 
     def addOneVoteToJohns(self):
         self.john_votes += 1
