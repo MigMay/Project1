@@ -43,7 +43,6 @@ class PickCandidate(QWidget):
         main_layout.addWidget(john_button)
         main_layout.addWidget(jane_button)
         self.setLayout(main_layout)
-        self.resize(400, 500
 
 
 
