@@ -4,7 +4,7 @@ from votemenu import *
 
 '''
 TODO: 
-click on button a open votemenu
+click on button a open votemenu V
 click on button b close program
 
 remove window size changing
@@ -39,6 +39,8 @@ class Ui_WelcomeMenu(object):
         self.retranslateUi(WelcomeMenu)
         QtCore.QMetaObject.connectSlotsByName(WelcomeMenu)
         self.pushButton.clicked.connect(self.openCandidateMenu)
+        self.pushButton_2.clicked.connect(self.closeProgram)
+
 
 
     def retranslateUi(self, WelcomeMenu):
@@ -54,6 +56,10 @@ class Ui_WelcomeMenu(object):
         self.ui = Ui_VoteMenu()
         self.ui.setupUi(self.window2)
         self.window2.show()
+
+    def closeProgram(self):
+        Ui_WelcomeMenu.close()
+
 
 
 if __name__ == "__main__":
