@@ -38,7 +38,7 @@ class Ui_WelcomeMenu(object):
         self.retranslateUi(WelcomeMenu)
         QtCore.QMetaObject.connectSlotsByName(WelcomeMenu)
         self.pushButton.clicked.connect(self.openCandidateMenu)
-        self.pushButton_2.clicked.connect(self.closeProgram)
+        # self.pushButton_2.clicked.connect(self.closeProgram)
 
     def retranslateUi(self, WelcomeMenu):
         _translate = QtCore.QCoreApplication.translate

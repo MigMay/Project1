@@ -12,7 +12,14 @@ class WelcomeMenuController(QWidget):
         self.show()
 
     def setUpSignalsAndSlots(self):
+        self.ui.pushButton.clicked.connect(self.openCandidateMenu)
         self.ui.pushButton_2.clicked.connect(self.close)
+
+    def openCandidateMenu(self):
+        self.window2 = QtWidgets.QWidget()
+        self.ui = Ui_VoteMenu()
+        self.ui.setupUi(self.window2)
+        self.window2.show()
 
 
 if __name__ == "__main__":
