@@ -14,6 +14,7 @@ class MainController:
         self.welcome_menu.show()
 
     def set_up_signals_and_slots(self):
+        self.welcome_menu.ui.pushButton_2.clicked.connect(self.welcome_menu.close)
         self.welcome_menu.ui.pushButton.clicked.connect(self.candidate_menu.show)
         self.welcome_menu.ui.pushButton.clicked.connect(self.welcome_menu.close)
         self.candidate_menu.ui.pushButton_9.clicked.connect(self.vote_submitted.show)
@@ -28,7 +29,7 @@ class WelcomeMenu(QWidget):
         self.setUpSignalsAndSlots()
 
     def setUpSignalsAndSlots(self):
-        self.ui.pushButton_2.clicked.connect(self.close)
+        pass
 
 
 class CandidateMenu(QWidget):
