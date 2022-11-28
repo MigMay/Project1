@@ -26,11 +26,7 @@ class WelcomeMenu(QWidget):
         self.setUpSignalsAndSlots()
 
     def setUpSignalsAndSlots(self):
-        self.ui.pushButton.clicked.connect(self.openCandidateMenu)
         self.ui.pushButton_2.clicked.connect(self.close)
-
-    def openCandidateMenu(self):
-        pass
 
 
 class CandidateMenu(QWidget):
