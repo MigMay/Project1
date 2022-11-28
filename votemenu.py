@@ -206,7 +206,7 @@ class Ui_VoteMenu(object):
         self.label_15.setText(_translate("VoteMenu", "Let\'s start voting..."))
         self.label_16.setText(_translate("VoteMenu", "You are apart of the College of IS&T voting pool. Please select your vote below. "))
         self.pushButton_9.setText(_translate("VoteMenu", "Submit Vote"))
-        self.pushButton_9.clicked.connect(self.selectCandidate)
+        # self.pushButton_9.clicked.connect(self.selectCandidate)
         self.pushButton_5.setText(_translate("VoteMenu", "Details"))
         self.pushButton_9.clicked.connect(self.viewCandidateDetails)
         self.label_27.setText(_translate("VoteMenu", "aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus imperdiet nulla"))
