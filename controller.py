@@ -36,7 +36,6 @@ class CandidateMenu(QWidget):
         self.ui = Ui_VoteMenu()
         self.ui.setupUi(self)
         self.setUpSignalsAndSlots()
-        self.show()
 
     def setUpSignalsAndSlots(self):
         pass
