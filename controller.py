@@ -7,7 +7,7 @@ class MainController:
     pass
 
 
-class WelcomeMenuController(QWidget):
+class WelcomeMenu(QWidget):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.ui = Ui_WelcomeMenu()
@@ -20,14 +20,11 @@ class WelcomeMenuController(QWidget):
         self.ui.pushButton_2.clicked.connect(self.close)
 
     def openCandidateMenu(self):
-        self.window2 = QtWidgets.QWidget()
-        self.ui = Ui_VoteMenu()
-        self.ui.setupUi(self.window2)
-        self.window2.show()
+        pass
 
 
 if __name__ == "__main__":
     import sys
     app = QApplication(sys.argv)
-    controller = WelcomeMenuController()
+    controller = WelcomeMenu()
     sys.exit(app.exec_())
