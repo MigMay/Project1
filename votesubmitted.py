@@ -11,8 +11,8 @@ class Ui_VoteSubmitted(object):
     def setupUi(self, VoteSubmitted):
         VoteSubmitted.setObjectName("VoteSubmitted")
         VoteSubmitted.resize(497, 399)
-        WelcomeMenu.setMinimumSize(QtCore.QSize(497, 399))
-        WelcomeMenu.setMaximumSize(QtCore.QSize(497, 399))
+        VoteSubmitted.setMinimumSize(QtCore.QSize(497, 399))
+        VoteSubmitted.setMaximumSize(QtCore.QSize(497, 399))
         self.label_13 = QtWidgets.QLabel(VoteSubmitted)
         self.label_13.setGeometry(QtCore.QRect(40, 50, 391, 191))
         font = QtGui.QFont()
