@@ -208,13 +208,16 @@ class Ui_VoteMenu(object):
         self.pushButton_9.setText(_translate("VoteMenu", "Submit Vote"))
         self.pushButton_9.clicked.connect(self.selectCandidate)
         self.pushButton_5.setText(_translate("VoteMenu", "Details"))
+        self.pushButton_9.clicked.connect(self.viewCandidateDetails)
         self.label_27.setText(_translate("VoteMenu", "aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus imperdiet nulla"))
         self.label_26.setText(_translate("VoteMenu", "Jeane Haden"))
         self.pushButton_6.setText(_translate("VoteMenu", "Details"))
+        self.pushButton_9.clicked.connect(self.viewCandidateDetails)
         self.label_28.setText(_translate("VoteMenu", "Edwin O. Ramirez"))
         self.label_29.setText(_translate("VoteMenu", "aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus imperdiet nulla"))
         self.label_34.setText(_translate("VoteMenu", "aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus imperdiet nulla"))
         self.pushButton_8.setText(_translate("VoteMenu", "Details"))
+        self.pushButton_9.clicked.connect(self.viewCandidateDetails)
         self.label_33.setText(_translate("VoteMenu", "Patricia A. Spiegel"))
         self.label_35.setText(_translate("VoteMenu", "Vote"))
 
@@ -240,10 +243,10 @@ class Ui_VoteMenu(object):
         self.window3.show()
 
 
-    def showCondidateDetails(self):
+    def viewCandidateDetails(self):
         self.window5 = QtWidgets.QWidget()
-        self.ui = Ui_viewdetails()
-        self.ui.setupUi(self.window3)
+        self.ui2 = Ui_viewdetails()
+        self.ui2.setupUi(self.window3)
         self.window5.show()
 
 
