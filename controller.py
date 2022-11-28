@@ -5,7 +5,14 @@ from votemenu import Ui_VoteMenu
 
 
 class MainController:
-    pass
+    def __init__(self):
+        self.welcome_menu = WelcomeMenu()
+        self.candidate_menu = CandidateMenu()
+        self.set_up_signals_and_slots()
+        self.welcome_menu.show()
+
+    def set_up_signals_and_slots(self):
+        self.welcome_menu.ui.pushButton.clicked.connect(self.candidate_menu.show)
 
 
 class WelcomeMenu(QWidget):
@@ -38,5 +45,5 @@ class CandidateMenu(QWidget):
 if __name__ == "__main__":
     import sys
     app = QApplication(sys.argv)
-    controller = WelcomeMenu()
+    controller = MainController()
     sys.exit(app.exec_())
