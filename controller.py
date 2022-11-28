@@ -8,7 +8,11 @@ class WelcomeMenuController(QWidget):
         super().__init__(*args, **kwargs)
         self.ui = Ui_WelcomeMenu()
         self.ui.setupUi(self)
+        self.setUpSignalsAndSlots()
         self.show()
+
+    def setUpSignalsAndSlots(self):
+        self.ui.pushButton_2.clicked.connect(self.close)
 
 
 if __name__ == "__main__":
