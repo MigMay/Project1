@@ -1,4 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from results import *
+from votemenu import *
 
 '''
 start another vote, open candidate selection window
@@ -33,6 +35,9 @@ class Ui_VoteSubmitted(object):
         self.retranslateUi(VoteSubmitted)
         QtCore.QMetaObject.connectSlotsByName(VoteSubmitted)
 
+        self.pushButton_3.clicked.connect(self.voteAgain)
+        self.pushButton_4.clicked.connect(self.seeResults)
+
     def retranslateUi(self, VoteSubmitted):
         _translate = QtCore.QCoreApplication.translate
         VoteSubmitted.setWindowTitle(_translate("VoteSubmitted", "Dialog"))
@@ -40,6 +45,21 @@ class Ui_VoteSubmitted(object):
         self.label_14.setText(_translate("VoteSubmitted", "Your vote was submitted!"))
         self.pushButton_3.setText(_translate("VoteSubmitted", "Start Another Vote"))
         self.pushButton_4.setText(_translate("VoteSubmitted", "See Results"))
+
+    def seeResults(self):
+        # open next window
+        self.window4 = QtWidgets.QDialog()
+        self.ui = Ui_Results()
+        self.ui.setupUi(self.window4)
+        self.window4.show()
+
+    def voteAgain(self):
+        self.window2 = QtWidgets.QWidget()
+        self.ui = Ui_VoteMenu()
+        self.ui.setupUi(self.window2)
+        self.window2.show()
+
+        pass
 
 
 if __name__ == "__main__":
