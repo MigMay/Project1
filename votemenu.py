@@ -5,6 +5,8 @@ from votesubmitted import *
 when radio button selected and submit button pushed, count vote for candidate and go to window 3
 when details button pushed, open window to show details
 when only submit button pushed, prompt user to select candidate
+how to store votes to later output
+open and write into a csv file and store votes into list
 
 
 '''
@@ -20,6 +22,8 @@ class Ui_VoteMenu(object):
     def setupUi(self, VoteMenu):
         VoteMenu.setObjectName("VoteMenu")
         VoteMenu.resize(940, 888)
+        VoteMenu.setMinimumSize(QtCore.QSize(940, 888))
+        VoteMenu.setMaximumSize(QtCore.QSize(940, 888))
         font = QtGui.QFont()
         font.setPointSize(12)
         VoteMenu.setFont(font)
@@ -107,7 +111,7 @@ class Ui_VoteMenu(object):
         self.label_24.setMinimumSize(QtCore.QSize(150, 150))
         self.label_24.setMaximumSize(QtCore.QSize(150, 150))
         self.label_24.setText("")
-        self.label_24.setPixmap(QtGui.QPixmap("candidate1.jpg"))
+        self.label_24.setPixmap(QtGui.QPixmap("candidate3.jpg"))
         self.label_24.setScaledContents(True)
         self.label_24.setObjectName("label_24")
         self.gridLayout_2.addWidget(self.label_24, 0, 0, 5, 1)
@@ -136,7 +140,7 @@ class Ui_VoteMenu(object):
         self.label_32.setMinimumSize(QtCore.QSize(150, 150))
         self.label_32.setMaximumSize(QtCore.QSize(150, 150))
         self.label_32.setText("")
-        self.label_32.setPixmap(QtGui.QPixmap("candidate1.jpg"))
+        self.label_32.setPixmap(QtGui.QPixmap("candidate2.jpg"))
         self.label_32.setScaledContents(True)
         self.label_32.setObjectName("label_32")
         self.gridLayout_4.addWidget(self.label_32, 0, 0, 5, 1)
@@ -204,9 +208,9 @@ class Ui_VoteMenu(object):
         self.pushButton_9.clicked.connect(self.selectCandidate)
         self.pushButton_5.setText(_translate("VoteMenu", "Details"))
         self.label_27.setText(_translate("VoteMenu", "aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus imperdiet nulla"))
-        self.label_26.setText(_translate("VoteMenu", "Patricia A. Spiegel"))
+        self.label_26.setText(_translate("VoteMenu", "Jeane Haden"))
         self.pushButton_6.setText(_translate("VoteMenu", "Details"))
-        self.label_28.setText(_translate("VoteMenu", "Patricia A. Spiegel"))
+        self.label_28.setText(_translate("VoteMenu", "Edwin O. Ramirez"))
         self.label_29.setText(_translate("VoteMenu", "aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus imperdiet nulla"))
         self.label_34.setText(_translate("VoteMenu", "aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus imperdiet nulla"))
         self.pushButton_8.setText(_translate("VoteMenu", "Details"))

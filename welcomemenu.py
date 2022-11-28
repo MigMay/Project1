@@ -1,11 +1,9 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from votemenu import *
-
-
 '''
 TODO: 
 click on button a open votemenu V
-click on button b close program
+click on button b close program v
 
 remove window size changing
 make this mainwindow
@@ -17,6 +15,8 @@ class Ui_WelcomeMenu(object):
         WelcomeMenu.resize(500, 600)
         self.pushButton = QtWidgets.QPushButton(WelcomeMenu)
         self.pushButton.setGeometry(QtCore.QRect(140, 370, 200, 50))
+        WelcomeMenu.setMinimumSize(QtCore.QSize(500, 600))
+        WelcomeMenu.setMaximumSize(QtCore.QSize(500, 600))
         self.pushButton.setObjectName("pushButton")
         self.pushButton_2 = QtWidgets.QPushButton(WelcomeMenu)
         self.pushButton_2.setGeometry(QtCore.QRect(140, 430, 200, 50))
@@ -47,7 +47,7 @@ class Ui_WelcomeMenu(object):
         _translate = QtCore.QCoreApplication.translate
         WelcomeMenu.setWindowTitle(_translate("WelcomeMenu", "Dialog"))
         self.pushButton.setText(_translate("WelcomeMenu", "Begin Voting"))
-        self.pushButton_2.setText(_translate("WelcomeMenu", "Log off"))
+        self.pushButton_2.setText(_translate("WelcomeMenu", "Close Program"))
         self.label.setText(_translate("WelcomeMenu", "Vote For Your Next Student Body President"))
         self.label_3.setText(_translate("WelcomeMenu", "Universtity of Nebraska at Omaha has begun elections for their student body president for 2023/2024"))
 
