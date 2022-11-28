@@ -5,10 +5,10 @@ TODO:
 click on button a open votemenu V
 click on button b close program v
 
-remove window size changing
-make this mainwindow
+remove window size changing v
+make this mainwindow 
+make this executable
 '''
-
 class Ui_WelcomeMenu(object):
     def setupUi(self, WelcomeMenu):
         WelcomeMenu.setObjectName("WelcomeMenu")
@@ -35,13 +35,10 @@ class Ui_WelcomeMenu(object):
         self.label_3.setFont(font)
         self.label_3.setWordWrap(True)
         self.label_3.setObjectName("label_3")
-
         self.retranslateUi(WelcomeMenu)
         QtCore.QMetaObject.connectSlotsByName(WelcomeMenu)
         self.pushButton.clicked.connect(self.openCandidateMenu)
         self.pushButton_2.clicked.connect(self.closeProgram)
-
-
 
     def retranslateUi(self, WelcomeMenu):
         _translate = QtCore.QCoreApplication.translate
@@ -59,7 +56,6 @@ class Ui_WelcomeMenu(object):
 
     def closeProgram(self):
         Ui_WelcomeMenu.close()
-
 
 
 if __name__ == "__main__":
