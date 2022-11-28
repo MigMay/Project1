@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QApplication, QWidget
 
 from welcomemenu import Ui_WelcomeMenu
+from votemenu import Ui_VoteMenu
 
 
 class MainController:
@@ -20,6 +21,18 @@ class WelcomeMenu(QWidget):
         self.ui.pushButton_2.clicked.connect(self.close)
 
     def openCandidateMenu(self):
+        pass
+
+
+class CandidateMenu(QWidget):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.ui = Ui_VoteMenu()
+        self.ui.setupUi(self)
+        self.setUpSignalsAndSlots()
+        self.show()
+
+    def setUpSignalsAndSlots(self):
         pass
 
 
