@@ -3,6 +3,10 @@ from PyQt5.QtWidgets import QApplication, QWidget
 from welcomemenu import Ui_WelcomeMenu
 
 
+class MainController:
+    pass
+
+
 class WelcomeMenuController(QWidget):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
