@@ -1,6 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from votesubmitted import *
-from viewdetails import *
 
 '''
 when radio button selected and submit button pushed, count vote for candidate and go to window 3
@@ -236,17 +235,17 @@ class Ui_VoteMenu(object):
         print(f' CA {self.voteForCandidateA}')
         print(f' CA {self.voteForCandidateB}')
         print(f' CA {self.voteForCandidateC}')
-
+        '''
         self.window3 = QtWidgets.QDialog()
         self.ui = Ui_VoteSubmitted()
         self.ui.setupUi(self.window3)
         self.window3.show()
-
+        '''
 
     def viewCandidateDetails(self):
         self.window5 = QtWidgets.QWidget()
         self.ui2 = Ui_viewdetails()
-        self.ui2.setupUi(self.window3)
+        self.ui2.setupUi(self.window5)
         self.window5.show()
 
 
