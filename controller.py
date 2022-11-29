@@ -4,6 +4,7 @@ from welcomemenu import Ui_WelcomeMenu
 from votemenu import Ui_VoteMenu
 from votesubmitted import Ui_VoteSubmitted
 from candidatedetails import Ui_viewdetails
+from results import Ui_Results
 
 
 class MainController:
@@ -24,6 +25,8 @@ class MainController:
         self.candidate_menu.ui.pushButton_5.clicked.connect(self.candidate_details.show)
         self.candidate_menu.ui.pushButton_6.clicked.connect(self.candidate_details.show)
         self.candidate_menu.ui.pushButton_8.clicked.connect(self.candidate_details.show)
+        self.vote_submitted.ui.pushButton_3.clicked.connect(self.candidate_details.show)
+
 
 
 
@@ -68,6 +71,17 @@ class VoteSubmitted(QWidget):
 
     def setUpSignalsAndSlots(self):
         pass
+
+class Results(QWidget):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.ui = Ui_Results()
+        self.ui.setupUi(self)
+        self.setUpSignalsAndSlots()
+
+    def setUpSignalsAndSlots(self):
+        pass
+
 
 
 if __name__ == "__main__":
