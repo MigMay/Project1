@@ -48,14 +48,15 @@ class Ui_WelcomeMenu(object):
         self.label.setText(_translate("WelcomeMenu", "Vote For Your Next Student Body President"))
         self.label_3.setText(_translate("WelcomeMenu", "Universtity of Nebraska at Omaha has begun elections for their student body president for 2023/2024"))
 
+    ''' 
     def openCandidateMenu(self):
         self.window2 = QtWidgets.QWidget()
         self.ui = Ui_VoteMenu()
         self.ui.setupUi(self.window2)
         self.window2.show()
-
     def closeProgram(self):
         Ui_WelcomeMenu.close()
+    '''
 
 
 if __name__ == "__main__":
