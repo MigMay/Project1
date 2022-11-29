@@ -1,6 +1,5 @@
 """
-
-be able to change image, h1 and body based off which candidate is seleceted
+be able to change image, h1 and body based off which candidate is selected
 
 """
 
@@ -36,7 +35,6 @@ class Ui_viewdetails(object):
         self.label_27.setFont(font)
         self.label_27.setWordWrap(True)
         self.label_27.setObjectName("label_27")
-
         self.retranslateUi(viewdetails)
         QtCore.QMetaObject.connectSlotsByName(viewdetails)
 
