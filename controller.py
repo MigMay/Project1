@@ -22,12 +22,16 @@ class MainController:
         self.welcome_menu.ui.pushButton.clicked.connect(self.candidate_menu.show)
         self.welcome_menu.ui.pushButton.clicked.connect(self.welcome_menu.close)
         self.candidate_menu.ui.pushButton_9.clicked.connect(self.vote_submitted.show)
-        self.candidate_menu.ui.pushButton_9.clicked.connect(self.candidate_menu.close)
         self.candidate_menu.ui.pushButton_5.clicked.connect(self.candidate_details.show)
         self.candidate_menu.ui.pushButton_6.clicked.connect(self.candidate_details.show)
         self.candidate_menu.ui.pushButton_8.clicked.connect(self.candidate_details.show)
+        self.candidate_menu.ui.pushButton_9.clicked.connect(self.candidate_menu.close)
         self.vote_submitted.ui.pushButton_3.clicked.connect(self.candidate_menu.show)
+        self.vote_submitted.ui.pushButton_3.clicked.connect(self.vote_submitted.close)
         self.vote_submitted.ui.pushButton_4.clicked.connect(self.results.show)
+        self.vote_submitted.ui.pushButton_4.clicked.connect(self.vote_submitted.close)
+        self.results.ui.pushButton_8.clicked.connect(self.welcome_menu.show)
+        self.results.ui.pushButton_8.clicked.connect(self.results.close)
 
 class WelcomeMenu(QWidget):
     def __init__(self, *args, **kwargs):
