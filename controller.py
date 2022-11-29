@@ -13,6 +13,7 @@ class MainController:
         self.candidate_menu = CandidateMenu()
         self.vote_submitted = VoteSubmitted()
         self.candidate_details = CandidateDetails()
+        self.results = Results()
         self.set_up_signals_and_slots()
         self.welcome_menu.show()
 
@@ -25,11 +26,8 @@ class MainController:
         self.candidate_menu.ui.pushButton_5.clicked.connect(self.candidate_details.show)
         self.candidate_menu.ui.pushButton_6.clicked.connect(self.candidate_details.show)
         self.candidate_menu.ui.pushButton_8.clicked.connect(self.candidate_details.show)
-        self.vote_submitted.ui.pushButton_3.clicked.connect(self.candidate_details.show)
-
-
-
-
+        self.vote_submitted.ui.pushButton_3.clicked.connect(self.candidate_menu.show)
+        self.vote_submitted.ui.pushButton_4.clicked.connect(self.results.show)
 
 class WelcomeMenu(QWidget):
     def __init__(self, *args, **kwargs):
@@ -51,6 +49,7 @@ class CandidateMenu(QWidget):
 
     def setUpSignalsAndSlots(self):
         pass
+
 class CandidateDetails(QWidget):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -81,7 +80,6 @@ class Results(QWidget):
 
     def setUpSignalsAndSlots(self):
         pass
-
 
 
 if __name__ == "__main__":
