@@ -37,8 +37,8 @@ class Ui_VoteSubmitted(object):
         self.retranslateUi(VoteSubmitted)
         QtCore.QMetaObject.connectSlotsByName(VoteSubmitted)
 
-        self.pushButton_3.clicked.connect(self.voteAgain)
-        self.pushButton_4.clicked.connect(self.seeResults)
+        #self.pushButton_3.clicked.connect(self.voteAgain)
+        #self.pushButton_4.clicked.connect(self.seeResults)
 
     def retranslateUi(self, VoteSubmitted):
         _translate = QtCore.QCoreApplication.translate
@@ -61,7 +61,7 @@ class Ui_VoteSubmitted(object):
         self.ui.setupUi(self.window2)
         self.window2.show()
 
-        pass
+
 
 
 if __name__ == "__main__":
