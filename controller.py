@@ -22,8 +22,8 @@ class MainController:
         self.candidate_menu.ui.pushButton_9.clicked.connect(self.vote_submitted.show)
         self.candidate_menu.ui.pushButton_9.clicked.connect(self.candidate_menu.close)
         self.candidate_menu.ui.pushButton_5.clicked.connect(self.candidate_details.show)
-        # 6
-        # 8
+        self.candidate_menu.ui.pushButton_6.clicked.connect(self.candidate_details.show)
+        self.candidate_menu.ui.pushButton_8.clicked.connect(self.candidate_details.show)
 
 
 
