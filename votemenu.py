@@ -198,6 +198,11 @@ class Ui_VoteMenu(object):
 
         self.retranslateUi(VoteMenu)
         QtCore.QMetaObject.connectSlotsByName(VoteMenu)
+        self.radioButton.toggled.connect(lambda: self.submitVote())
+        self.radioButton_2.toggled.connect(lambda: self.submitVote())
+        self.radioButton_3.toggled.connect(lambda: self.submitVote())
+
+
 
     def retranslateUi(self, VoteMenu):
         _translate = QtCore.QCoreApplication.translate
@@ -220,18 +225,24 @@ class Ui_VoteMenu(object):
         self.label_33.setText(_translate("VoteMenu", "Patricia A. Spiegel"))
         self.label_35.setText(_translate("VoteMenu", "Vote"))
 
-    def selectCandidate(self):
-        self.pushButton_9.setText("submitted")
-        self.voteForCandidateA = 0
-        self.voteForCandidateB = 0
-        self.voteForCandidateC = 0
+    def submitVote(self):
+        CA_vote = 0
+        CB_vote = 0
+        CC_vote = 0
 
         if self.radioButton.isChecked():
-            self.voteForCandidateA += 1
+            CA_vote += 1
         if self.radioButton_2.isChecked():
-            self.voteForCandidateB += 1
-        if self.radioButton_3.isChecked():
-            self.voteForCandidateC += 1
+            CB_vote += 1
+        if self.radioButton_3 .isChecked():
+            CC_vote += 1
+
+        print(f'{CA_vote}{CB_vote}{CC_vote}')
+
+        return CA_vote, CB_vote, CC_vote
+
+    def selectCandidate(self):
+
         print(f' CA {self.voteForCandidateA}')
         print(f' CA {self.voteForCandidateB}')
         print(f' CA {self.voteForCandidateC}')
