@@ -198,9 +198,9 @@ class Ui_VoteMenu(object):
 
         self.retranslateUi(VoteMenu)
         QtCore.QMetaObject.connectSlotsByName(VoteMenu)
-        self.radioButton.toggled.connect(lambda: self.submitVote())
-        self.radioButton_2.toggled.connect(lambda: self.submitVote())
-        self.radioButton_3.toggled.connect(lambda: self.submitVote())
+        #self.radioButton.toggled.connect(lambda: self.submitVote())
+        #self.radioButton_2.toggled.connect(lambda: self.submitVote())
+        #self.radioButton_3.toggled.connect(lambda: self.submitVote())
 
 
 
@@ -213,13 +213,13 @@ class Ui_VoteMenu(object):
         # self.pushButton_9.clicked.connect(self.selectCandidate)
         self.pushButton_5.setText(_translate("VoteMenu", "Details"))
         # self.pushButton_9.clicked.connect(self.viewCandidateDetails)
-        self.label_27.setText(_translate("VoteMenu", "aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus imperdiet nulla"))
+        self.label_27.setText(_translate("VoteMenu", ""))
         self.label_26.setText(_translate("VoteMenu", "Jeane Haden"))
         self.pushButton_6.setText(_translate("VoteMenu", "Details"))
         # self.pushButton_9.clicked.connect(self.viewCandidateDetails)
         self.label_28.setText(_translate("VoteMenu", "Edwin O. Ramirez"))
-        self.label_29.setText(_translate("VoteMenu", "aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus imperdiet nulla"))
-        self.label_34.setText(_translate("VoteMenu", "aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus imperdiet nulla"))
+        self.label_29.setText(_translate("VoteMenu", ""))
+        self.label_34.setText(_translate("VoteMenu", ""))
         self.pushButton_8.setText(_translate("VoteMenu", "Details"))
         # self.pushButton_9.clicked.connect(self.viewCandidateDetails)
         self.label_33.setText(_translate("VoteMenu", "Patricia A. Spiegel"))
@@ -234,10 +234,11 @@ class Ui_VoteMenu(object):
             CA_vote += 1
         if self.radioButton_2.isChecked():
             CB_vote += 1
-        if self.radioButton_3 .isChecked():
+        if self.radioButton_3.isChecked():
             CC_vote += 1
 
-        print(f'{CA_vote}{CB_vote}{CC_vote}')
+        print(f'votes{CA_vote}{CB_vote}{CC_vote}')
+        self.candidate_details.show
 
         return CA_vote, CB_vote, CC_vote
 
