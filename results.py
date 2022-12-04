@@ -4,7 +4,7 @@ should be able to change picture and name, based on who wins by votes
 retreive and interpret votes from file
 """
 from PyQt5 import QtCore, QtGui, QtWidgets
-from votemenu import *
+from candidatemenu import *
 
 class Ui_Results(object):
     def setupUi(self, Results):
