@@ -20,7 +20,7 @@ def readVotes():
     CB_vote = 0
     CC_vote = 0
 
-    with open('votingrecords2.csv', 'r', newline='') as csv_file:
+    with open('votingrecords.csv', 'r', newline='') as csv_file:
         csv_reader = csv.reader(csv_file)
 
         for row in csv_reader:
@@ -35,14 +35,12 @@ def readVotes():
     return CA_vote, CB_vote, CC_vote
 
 
-def logVote():
-    with open('votingrecords.csv', 'w', newline='') as csv_file:
-        fieldnames = ['Jeane', 'Edwin', 'Patricia']
-        csv_reader = csv.reader(csv_file)
-        csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+def logVote(vote_list):
 
-        csv_writer.writeheader()
-        csv_writer.writerow()
+    with open('votingrecords.csv', 'w', newline='') as csv_file:
+        #fieldnames = ['Jeane', 'Edwin', 'Patricia']
+        csv_writer = csv.writer(csv_file)
+        csv_writer.writerow(vote_list)
 
 def main():
     var, var2, var3 = readVotes()
