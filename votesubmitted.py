@@ -1,11 +1,12 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from results import *
-from votemenu import *
+from candidatemenu import *
 
 '''
 start another vote, open candidate selection window
 show results pushed, open results window and take data with flow
 
+remove this gui file entirely and modify and use welcome menu file
 '''
 class Ui_VoteSubmitted(object):
     def setupUi(self, VoteSubmitted):
@@ -60,8 +61,6 @@ class Ui_VoteSubmitted(object):
         self.ui = Ui_VoteMenu()
         self.ui.setupUi(self.window2)
         self.window2.show()
-
-
 
 
 if __name__ == "__main__":
