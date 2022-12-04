@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from votemenu import *
+from candidatemenu import *
 '''
 TODO: 
 click on button a open votemenu V
@@ -43,8 +43,8 @@ class Ui_WelcomeMenu(object):
     def retranslateUi(self, WelcomeMenu):
         _translate = QtCore.QCoreApplication.translate
         WelcomeMenu.setWindowTitle(_translate("WelcomeMenu", "Dialog"))
-        self.pushButton.setText(_translate("WelcomeMenu", "Begin Voting"))
-        self.pushButton_2.setText(_translate("WelcomeMenu", "Close Program"))
+        self.pushButton.setText(_translate("WelcomeMenu", "Vote"))
+        self.pushButton_2.setText(_translate("WelcomeMenu", "See Results"))
         self.label.setText(_translate("WelcomeMenu", "Vote For Your Next Student Body President"))
         self.label_3.setText(_translate("WelcomeMenu", "Universtity of Nebraska at Omaha has begun elections for their student body president for 2023/2024"))
 
