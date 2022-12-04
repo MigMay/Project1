@@ -11,14 +11,13 @@ import csv
 import
 
 
-class voteSubmittedHelper():
+class resultsHelper():
     def importVotes(self):
         pass
 
     def changeWinnerData(self):
-        pass
 
-    def
+
 jv=1
 ev=2
 pv=3
