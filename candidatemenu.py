@@ -238,7 +238,7 @@ class Ui_VoteMenu(object):
             CC_vote += 1
 
         print(f'votes{CA_vote}{CB_vote}{CC_vote}')
-        self.candidate_details.show
+        self.welcomemenu.show()
 
         return CA_vote, CB_vote, CC_vote
 
