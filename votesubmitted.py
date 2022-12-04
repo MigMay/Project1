@@ -3,9 +3,6 @@ from results import *
 from candidatemenu import *
 
 '''
-start another vote, open candidate selection window
-show results pushed, open results window and take data with flow
-
 remove this gui file entirely and modify and use welcome menu file
 '''
 class Ui_VoteSubmitted(object):
