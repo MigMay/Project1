@@ -1,8 +1,8 @@
 from PyQt5.QtWidgets import QApplication, QWidget
 
-import votemenu
+import candidatemenu
 from welcomemenu import Ui_WelcomeMenu
-from votemenu import Ui_VoteMenu
+from candidatemenu import Ui_VoteMenu
 from votesubmitted import Ui_VoteSubmitted
 from candidatedetails import Ui_viewdetails
 from results import Ui_Results
@@ -32,12 +32,12 @@ class MainController:
         self.welcome_menu.ui.pushButton_2.clicked.connect(self.welcome_menu.close)
         self.welcome_menu.ui.pushButton.clicked.connect(self.candidate_menu.show)
         self.welcome_menu.ui.pushButton.clicked.connect(self.welcome_menu.close)
-        self.candidate_menu.ui.pushButton_9.clicked.connect(self.vote_submitted.show)
+        #self.candidate_menu.ui.pushButton_9.clicked.connect(self.vote_submitted.show)
         self.candidate_menu.ui.pushButton_9.clicked.connect(self.candidate_menu.submitVote)
         self.candidate_menu.ui.pushButton_5.clicked.connect(self.candidate_details.show)
         self.candidate_menu.ui.pushButton_6.clicked.connect(self.candidate_details.show)
-        self.candidate_menu.ui.pushButton_8.clicked.connect(self.candidate_details.show)
-        self.candidate_menu.ui.pushButton_9.clicked.connect(self.candidate_menu.close)
+        self.candidate_menu.ui.pushButton_9.clicked.connect(lambda: self.candidate_menu.submitVote())
+        #self.candidate_menu.ui.pushButton_9.clicked.connect(self.candidate_menu.close)
         self.vote_submitted.ui.pushButton_3.clicked.connect(self.candidate_menu.show)
         self.vote_submitted.ui.pushButton_3.clicked.connect(self.vote_submitted.close)
         self.vote_submitted.ui.pushButton_4.clicked.connect(self.results.show)
@@ -46,30 +46,42 @@ class MainController:
         self.results.ui.pushButton_8.clicked.connect(self.results.close)
 
 class WelcomeMenu(QWidget):
-     """
-     Initialize Maincontroller
 
-     :param amount: just maincontroller
-     :return: True if deposit was successful, otherwise false
-     """
     def __init__(self, *args, **kwargs):
+        """
+         Initialize Welcome Menu
+
+         :param amount:
+         """
         super().__init__(*args, **kwargs)
         self.ui = Ui_WelcomeMenu()
         self.ui.setupUi(self)
         self.setUpSignalsAndSlots()
 
     def setUpSignalsAndSlots(self):
+        """
+        set up signals and slots for welcome menu
+        :param amount:
+        """
         pass
 
 
 class CandidateMenu(QWidget):
     def __init__(self, *args, **kwargs):
+        """
+        initial candidate menu
+        :param amount:
+        """
         super().__init__(*args, **kwargs)
         self.ui = Ui_VoteMenu()
         self.ui.setupUi(self)
         self.setUpSignalsAndSlots()
 
     def setUpSignalsAndSlots(self):
+        """
+        set up signals and slots for welcome menu
+        :param amount:
+        """
         pass
 
     def submitVote(self):
@@ -106,20 +118,24 @@ class Results(QWidget):
         pass
 
 
-class Voter():
-    def voter(self):
-        self.pushButton_9.setText("submitted")
-        self.voteForCandidateA = 0
-        self.voteForCandidateB = 0
-        self.voteForCandidateC = 0
+def submitVote(self):
+    CA_vote = 0
+    CB_vote = 0
+    CC_vote = 0
 
-        if self.radioButton.isChecked():
-            self.voteForCandidateA += 1
-        if self.radioButton_2.isChecked():
-            self.voteForCandidateB += 1
-        if self.radioButton_3.isChecked():
-            self.voteForCandidateC += 1
+    print("test")
+    if self.radioButton.isChecked():
+        CA_vote += 1
+    if self.radioButton_2.isChecked():
+        CB_vote += 1
+    if self.radioButton_3.isChecked():
+        CC_vote += 1
 
+    print(f'votes{CA_vote}{CB_vote}{CC_vote}')
+    self.candidate_menu.close
+    self.vote_submitted.show
+
+    return CA_vote, CB_vote, CC_vote
 
 if __name__ == "__main__":
     import sys
