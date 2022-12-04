@@ -9,24 +9,32 @@ import csv
 from results import *
 
 
-"""
 class resultsHelper():
-    def importVotes(self):
-    
 
-        #Count the separate occurrences of votes.
-        result = {}
-        with open('votingrecords2.csv', 'r', newline='') as csv_file:
-            csv_reader = csv.reader(csv_file)
+    def readVotes():
+            CA_vote = 0
+            CB_vote = 0
+            CC_vote = 0
 
-            for line in csv_file:
-                print(line[0])
+            with open('votingrecords2.csv', 'r', newline='') as csv_file:
+                csv_reader = csv.reader(csv_file)
 
-    #return result
+                for row in csv_reader:
+                    CA_vote += int(row[0].strip())
+                    CB_vote += int(row[1].strip())
+                    CC_vote += int(row[2].strip())
 
+                print(CA_vote)
+                print(CB_vote)
+                print(CC_vote)
 
-    def changeWinnerData(self):
-        Ui_Results.retranslateUi().self.label_18.setText(str())
+            return CA_vote, CB_vote, CC_vote
+
+    def updateResults(CA_vote, CB_vote, CC_vote ):
+        Ui_Results.retranslateUi().self.label_18.setText(str(CA_vote))
+        Ui_Results.retranslateUi().self.label_18.setText(str(CB_vote))
+        Ui_Results.retranslateUi().self.label_18.setText(str(CC_vote))
+
 
 
 
@@ -45,26 +53,8 @@ class candidateMenuHelper():
             csv_writer.writeheader()
             csv_writer.writerow()
 
-#candidateMenuHelper.logVote()
+def main():
+    resultsHelper.readVotes()
+    resultsHelper.updateResults()
 
-
-
-resultsHelper.importVotes()
-
-"""
-
-CA_vote = 0
-CB_vote = 0
-CC_vote = 0
-
-with open('votingrecords2.csv', 'r', newline='') as csv_file:
-    csv_reader = csv.reader(csv_file)
-
-    for row in csv_reader:
-        CA_vote += int(row[0].strip())
-        CB_vote += int(row[1].strip())
-        CC_vote += int(row[2].strip())
-
-    print(CA_vote)
-    print(CB_vote)
-    print(CC_vote)
+main()
