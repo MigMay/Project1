@@ -6,6 +6,7 @@ from candidatemenu import Ui_VoteMenu
 from votesubmitted import Ui_VoteSubmitted
 from candidatedetails import Ui_viewdetails
 from results import Ui_Results
+from helper import *
 
 
 class MainController:
@@ -29,6 +30,8 @@ class MainController:
 
          :param amount: self
          """
+
+        self.welcome_menu.ui.pushButton_2.clicked.connect(self.results.show)
         self.welcome_menu.ui.pushButton_2.clicked.connect(self.welcome_menu.close)
         self.welcome_menu.ui.pushButton.clicked.connect(self.candidate_menu.show)
         self.welcome_menu.ui.pushButton.clicked.connect(self.welcome_menu.close)
@@ -37,13 +40,16 @@ class MainController:
         self.candidate_menu.ui.pushButton_5.clicked.connect(self.candidate_details.show)
         self.candidate_menu.ui.pushButton_6.clicked.connect(self.candidate_details.show)
         self.candidate_menu.ui.pushButton_9.clicked.connect(lambda: self.candidate_menu.submitVote())
-        #self.candidate_menu.ui.pushButton_9.clicked.connect(self.candidate_menu.close)
+        self.candidate_menu.ui.pushButton_9.clicked.connect(self.candidate_menu.close)
+        self.candidate_menu.ui.pushButton_9.clicked.connect(self.welcome_menu.show)
         self.vote_submitted.ui.pushButton_3.clicked.connect(self.candidate_menu.show)
-        self.vote_submitted.ui.pushButton_3.clicked.connect(self.vote_submitted.close)
-        self.vote_submitted.ui.pushButton_4.clicked.connect(self.results.show)
-        self.vote_submitted.ui.pushButton_4.clicked.connect(self.vote_submitted.close)
+        #self.vote_submitted.ui.pushButton_3.clicked.connect(self.vote_submitted.close)
+        #self.vote_submitted.ui.pushButton_4.clicked.connect(self.results.show)
+        self.welcome_menu.ui.pushButton_2.clicked.connect(lambda: self.results.updateResults(*readVotes()))
+        #self.vote_submitted.ui.pushButton_4.clicked.connect(self.vote_submitted.close)
         self.results.ui.pushButton_8.clicked.connect(self.welcome_menu.show)
         self.results.ui.pushButton_8.clicked.connect(self.results.close)
+        self.results.ui.pushButton_9.clicked.connect(self.results.close)
 
 class WelcomeMenu(QWidget):
 
@@ -85,7 +91,28 @@ class CandidateMenu(QWidget):
         pass
 
     def submitVote(self):
-        pass
+        print('test')
+        CA_vote = 0
+        CB_vote = 0
+        CC_vote = 0
+
+        if self.ui.radioButton.isChecked():
+            CA_vote += 1
+        if self.ui.radioButton_2.isChecked():
+            CB_vote += 1
+        if self.ui.radioButton_3.isChecked():
+            CC_vote += 1
+        vote_list = [CA_vote, CB_vote, CC_vote]
+
+        print(f'votes{CA_vote}{CB_vote}{CC_vote}')
+
+        logVote(vote_list)
+        #self.candidate_menu.close
+        #self.vote_submitted.show
+
+        return CA_vote, CB_vote, CC_vote
+
+
 class CandidateDetails(QWidget):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -117,25 +144,22 @@ class Results(QWidget):
     def setUpSignalsAndSlots(self):
         pass
 
+    def updateResults(self, CA_vote, CB_vote, CC_vote):
 
-def submitVote(self):
-    CA_vote = 0
-    CB_vote = 0
-    CC_vote = 0
+        self.ui.label_18.setText(str(CA_vote))
+        self.ui.label_19.setText(str(CB_vote))
+        self.ui.label_20.setText(str(CC_vote))
 
-    print("test")
-    if self.radioButton.isChecked():
-        CA_vote += 1
-    if self.radioButton_2.isChecked():
-        CB_vote += 1
-    if self.radioButton_3.isChecked():
-        CC_vote += 1
-
-    print(f'votes{CA_vote}{CB_vote}{CC_vote}')
-    self.candidate_menu.close
-    self.vote_submitted.show
-
-    return CA_vote, CB_vote, CC_vote
+        if CA_vote > CB_vote and CA_vote > CC_vote:
+            winner_name = 'Jeanne Haden'
+            self.ui.label_21.setPixmap(QtGui.QPixmap("candidate1.jpg"))
+        if CB_vote > CA_vote and CB_vote > CC_vote:
+            winner_name = 'Edwin O. Ramirez'
+            self.ui.label_21.setPixmap(QtGui.QPixmap("candidate3.jpg"))
+        if CC_vote > CA_vote and CC_vote > CB_vote:
+            winner_name = 'Patricia A. Spiegel'
+            self.ui.label_21.setPixmap(QtGui.QPixmap("candidate2.jpg"))
+        self.ui.label_22.setText(winner_name)
 
 if __name__ == "__main__":
     import sys
