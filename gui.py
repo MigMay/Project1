@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QApplication, QWidget
-from votemenu import Ui_VoteMenu
+from candidatemenu import Ui_VoteMenu
 
 
 class VoteMenu(QWidget):
