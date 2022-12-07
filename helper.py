@@ -14,6 +14,12 @@ if no data in csv, then raise exception
 """
 import csv
 from results import *
+def logVote(vote_list):
+
+    with open('votingrecords.csv', 'a', newline='') as csv_file:
+        #fieldnames = ['Jeane', 'Edwin', 'Patricia']
+        csv_writer = csv.writer(csv_file)
+        csv_writer.writerow(vote_list)
 
 def readVotes():
     CA_vote = 0
@@ -28,21 +34,10 @@ def readVotes():
             CB_vote += int(row[1].strip())
             CC_vote += int(row[2].strip())
 
-        print(CA_vote)
-        print(CB_vote)
-        print(CC_vote)
-
     return CA_vote, CB_vote, CC_vote
-
-
-def logVote(vote_list):
-
-    with open('votingrecords.csv', 'w', newline='') as csv_file:
-        #fieldnames = ['Jeane', 'Edwin', 'Patricia']
-        csv_writer = csv.writer(csv_file)
-        csv_writer.writerow(vote_list)
 
 def main():
     var, var2, var3 = readVotes()
+
 
 main()
