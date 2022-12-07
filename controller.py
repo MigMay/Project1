@@ -198,6 +198,10 @@ class Results(QWidget):
             self.ui.label_21.setPixmap(QtGui.QPixmap("candidate2.jpg"))
         self.ui.label_22.setText(winner_name)
 
+    def clearVotes(self):
+        with open('votingrecords.csv', 'w', newline='') as csv_file:
+            csv_reader = csv.reader(csv_file)
+
 if __name__ == "__main__":
     import sys
     app = QApplication(sys.argv)
