@@ -1,5 +1,4 @@
 from PyQt5.QtWidgets import QApplication, QWidget
-
 import candidatemenu
 from welcomemenu import Ui_WelcomeMenu
 from candidatemenu import Ui_VoteMenu
@@ -7,7 +6,6 @@ from votesubmitted import Ui_VoteSubmitted
 from candidatedetails import Ui_viewdetails
 from results import Ui_Results
 from helper import *
-
 
 class MainController:
     def __init__(self):
@@ -34,6 +32,7 @@ class MainController:
         self.welcome_menu.ui.pushButton_2.clicked.connect(self.results.show)
         self.welcome_menu.ui.pushButton_2.clicked.connect(self.welcome_menu.close)
         self.welcome_menu.ui.pushButton_2.clicked.connect(lambda: self.results.updateResults(*readVotes()))
+        self.welcome_menu.ui.pushButton.clicked.connect(lambda: self.candidate_menu.ui.pushButton_9.setEnabled(False))
         self.welcome_menu.ui.pushButton.clicked.connect(self.candidate_menu.show)
         self.welcome_menu.ui.pushButton.clicked.connect(self.welcome_menu.close)
 
@@ -43,6 +42,10 @@ class MainController:
         self.candidate_menu.ui.pushButton_5.clicked.connect(self.candidate_details.show)
         self.candidate_menu.ui.pushButton_6.clicked.connect(self.candidate_details.show)
         self.candidate_menu.ui.pushButton_8.clicked.connect(self.candidate_details.show)
+        self.candidate_menu.ui.radioButton.clicked.connect(self.candidate_menu.ui.pushButton_9.setEnabled)
+        self.candidate_menu.ui.radioButton_2.clicked.connect(self.candidate_menu.ui.pushButton_9.setEnabled)
+        self.candidate_menu.ui.radioButton_3.clicked.connect(self.candidate_menu.ui.pushButton_9.setEnabled)
+
         self.candidate_menu.ui.pushButton_5.clicked.connect(
             lambda: self.candidate_details.updateDetails('Jeanne Haden', 'candidate1.jpg' )
         )
@@ -52,20 +55,19 @@ class MainController:
         self.candidate_menu.ui.pushButton_8.clicked.connect(
             lambda: self.candidate_details.updateDetails('Patricia A. Spiegel', 'candidate2.jpg' )
         )
-
-        #if self.candidate_menu.ui.radioButton.isChecked() or self.candidate_menu.ui.radioButton_2.isChecked() or self.candidate_menu.ui.radioButton_3.isChecked():
+        #submit vote button
         self.candidate_menu.ui.pushButton_9.clicked.connect(self.candidate_menu.submitVote)
+        self.candidate_menu.ui.pushButton_9.clicked.connect(lambda: self.candidate_menu.submitVote())
         self.candidate_menu.ui.pushButton_9.clicked.connect(lambda: self.candidate_menu.submitVote())
         self.candidate_menu.ui.pushButton_9.clicked.connect(self.candidate_menu.close)
         self.candidate_menu.ui.pushButton_9.clicked.connect(self.welcome_menu.show)
-
-
-
 
         self.vote_submitted.ui.pushButton_3.clicked.connect(self.candidate_menu.show)
         #self.vote_submitted.ui.pushButton_3.clicked.connect(self.vote_submitted.close)
         #self.vote_submitted.ui.pushButton_4.clicked.connect(self.results.show)
         #self.vote_submitted.ui.pushButton_4.clicked.connect(self.vote_submitted.close)
+
+        #results page buttons
         self.results.ui.pushButton_8.clicked.connect(self.welcome_menu.show)
         self.results.ui.pushButton_8.clicked.connect(self.results.close)
         self.results.ui.pushButton_9.clicked.connect(self.results.close)
@@ -126,20 +128,18 @@ class CandidateMenu(QWidget):
             self.ui.radioButton_2.setChecked(False)
             self.ui.radioButton_2.setAutoExclusive(True)
 
+
         if self.ui.radioButton_3.isChecked():
             CC_vote += 1
             self.ui.radioButton_3.setAutoExclusive(False)
             self.ui.radioButton_3.setChecked(False)
             self.ui.radioButton_3.setAutoExclusive(True)
+
         vote_list = [CA_vote, CB_vote, CC_vote]
-
         print(f'votes{CA_vote}{CB_vote}{CC_vote}')
-
         logVote(vote_list)
         #self.candidate_menu.close
         #self.vote_submitted.show
-
-
 
         return CA_vote, CB_vote, CC_vote
 
