@@ -53,11 +53,11 @@ class MainController:
             lambda: self.candidate_details.updateDetails('Patricia A. Spiegel', 'candidate2.jpg' )
         )
 
-        if self.candidate_menu.ui.radioButton.isChecked() or self.candidate_menu.ui.radioButton_2.isChecked() or self.candidate_menu.ui.radioButton_3.isChecked():
-            self.candidate_menu.ui.pushButton_9.clicked.connect(self.candidate_menu.submitVote)
-            self.candidate_menu.ui.pushButton_9.clicked.connect(lambda: self.candidate_menu.submitVote())
-            self.candidate_menu.ui.pushButton_9.clicked.connect(self.candidate_menu.close)
-            self.candidate_menu.ui.pushButton_9.clicked.connect(self.welcome_menu.show)
+        #if self.candidate_menu.ui.radioButton.isChecked() or self.candidate_menu.ui.radioButton_2.isChecked() or self.candidate_menu.ui.radioButton_3.isChecked():
+        self.candidate_menu.ui.pushButton_9.clicked.connect(self.candidate_menu.submitVote)
+        self.candidate_menu.ui.pushButton_9.clicked.connect(lambda: self.candidate_menu.submitVote())
+        self.candidate_menu.ui.pushButton_9.clicked.connect(self.candidate_menu.close)
+        self.candidate_menu.ui.pushButton_9.clicked.connect(self.welcome_menu.show)
 
 
 
@@ -110,17 +110,27 @@ class CandidateMenu(QWidget):
         pass
 
     def submitVote(self):
-        print('test')
         CA_vote = 0
         CB_vote = 0
         CC_vote = 0
 
         if self.ui.radioButton.isChecked():
             CA_vote += 1
+            self.ui.radioButton.setAutoExclusive(False)
+            self.ui.radioButton.setChecked(False)
+            self.ui.radioButton.setAutoExclusive(True)
+
         if self.ui.radioButton_2.isChecked():
             CB_vote += 1
+            self.ui.radioButton_2.setAutoExclusive(False)
+            self.ui.radioButton_2.setChecked(False)
+            self.ui.radioButton_2.setAutoExclusive(True)
+
         if self.ui.radioButton_3.isChecked():
             CC_vote += 1
+            self.ui.radioButton_3.setAutoExclusive(False)
+            self.ui.radioButton_3.setChecked(False)
+            self.ui.radioButton_3.setAutoExclusive(True)
         vote_list = [CA_vote, CB_vote, CC_vote]
 
         print(f'votes{CA_vote}{CB_vote}{CC_vote}')
