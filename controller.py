@@ -1,5 +1,6 @@
-from PyQt5.QtWidgets import QApplication, QWidget
+from PyQt5.QtWidgets import QApplication, QWidget, QErrorMessage, QMessageBox
 import candidatemenu
+import helper
 from welcomemenu import Ui_WelcomeMenu
 from candidatemenu import Ui_VoteMenu
 from votesubmitted import Ui_VoteSubmitted
@@ -32,7 +33,7 @@ class MainController:
         #welcome menu buttons
         self.welcome_menu.ui.pushButton_2.clicked.connect(self.results.show)
         self.welcome_menu.ui.pushButton_2.clicked.connect(self.welcome_menu.close)
-        self.welcome_menu.ui.pushButton_2.clicked.connect(lambda: self.results.updateResults(*readVotes()))
+        self.welcome_menu.ui.pushButton_2.clicked.connect(self.results.updateResults)
         self.welcome_menu.ui.pushButton.clicked.connect(lambda: self.candidate_menu.ui.pushButton_9.setEnabled(False))
         self.welcome_menu.ui.pushButton.clicked.connect(self.candidate_menu.show)
         self.welcome_menu.ui.pushButton.clicked.connect(self.welcome_menu.close)
@@ -186,7 +187,13 @@ class Results(QWidget):
     def setUpSignalsAndSlots(self):
         pass
 
-    def updateResults(self, CA_vote, CB_vote, CC_vote):
+    def updateResults(self):
+        try:
+            CA_vote, CB_vote, CC_vote = readVotes()
+
+        except FileNotFoundError:
+            QMessageBox.warning(self, "Error", "File does not exist!")
+            return
 
         self.ui.label_18.setText(str(CA_vote))
         self.ui.label_19.setText(str(CB_vote))
@@ -202,3 +209,5 @@ class Results(QWidget):
             winner_name = 'Patricia A. Spiegel'
             self.ui.label_21.setPixmap(QtGui.QPixmap("candidate2.jpg"))
         self.ui.label_22.setText(winner_name)
+
+
