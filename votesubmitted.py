@@ -2,9 +2,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from results import *
 from candidatemenu import *
 
-'''
-remove this gui file entirely and modify and use welcome menu file
-'''
 class Ui_VoteSubmitted(object):
     def setupUi(self, VoteSubmitted):
         VoteSubmitted.setObjectName("VoteSubmitted")
