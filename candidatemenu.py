@@ -1,17 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from votesubmitted import *
-
-'''
-when radio button selected and submit button pushed, count vote for candidate and go to window 3
-when details button pushed, open window to show details
-when only submit button pushed, prompt user to select candidate
-how to store votes to later output
-open and write into a csv file and store votes into list
-
-
-'''
-
-
 class Ui_VoteMenu(object):
     def __init__(self):
         self.voteForCandidateA = None

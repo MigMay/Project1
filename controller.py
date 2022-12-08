@@ -21,6 +21,7 @@ class MainController:
         self.results = Results()
         self.set_up_signals_and_slots()
         self.welcome_menu.show()
+        self.welcome_menu.ui.pushButton_2.setEnabled(False)
 
     def set_up_signals_and_slots(self):
         """
@@ -59,6 +60,7 @@ class MainController:
         self.candidate_menu.ui.pushButton_9.clicked.connect(self.candidate_menu.submitVote)
         self.candidate_menu.ui.pushButton_9.clicked.connect(lambda: self.candidate_menu.submitVote())
         self.candidate_menu.ui.pushButton_9.clicked.connect(lambda: self.candidate_menu.submitVote())
+        self.candidate_menu.ui.pushButton_9.clicked.connect(lambda: self.welcome_menu.ui.pushButton_2.setEnabled(True))
         self.candidate_menu.ui.pushButton_9.clicked.connect(self.candidate_menu.close)
         self.candidate_menu.ui.pushButton_9.clicked.connect(self.welcome_menu.show)
 
@@ -70,7 +72,10 @@ class MainController:
         #results page buttons
         self.results.ui.pushButton_8.clicked.connect(self.welcome_menu.show)
         self.results.ui.pushButton_8.clicked.connect(self.results.close)
+        self.results.ui.pushButton_8.clicked.connect(clearVotes)
+        self.results.ui.pushButton_8.clicked.connect(lambda: self.welcome_menu.ui.pushButton_2.setEnabled(False))
         self.results.ui.pushButton_9.clicked.connect(self.results.close)
+
 
 class WelcomeMenu(QWidget):
 
@@ -171,6 +176,7 @@ class VoteSubmitted(QWidget):
     def setUpSignalsAndSlots(self):
         pass
 
+
 class Results(QWidget):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -197,13 +203,3 @@ class Results(QWidget):
             winner_name = 'Patricia A. Spiegel'
             self.ui.label_21.setPixmap(QtGui.QPixmap("candidate2.jpg"))
         self.ui.label_22.setText(winner_name)
-
-    def clearVotes(self):
-        with open('votingrecords.csv', 'w', newline='') as csv_file:
-            csv_reader = csv.reader(csv_file)
-
-if __name__ == "__main__":
-    import sys
-    app = QApplication(sys.argv)
-    controller = MainController()
-    sys.exit(app.exec_())

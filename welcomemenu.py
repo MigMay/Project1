@@ -1,14 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from candidatemenu import *
-'''
-TODO: 
-click on button a open votemenu V
-click on button b close program v
 
-remove window size changing v
-make this mainwindow 
-make this executable
-'''
 class Ui_WelcomeMenu(object):
     def setupUi(self, WelcomeMenu):
         WelcomeMenu.setObjectName("WelcomeMenu")
