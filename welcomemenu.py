@@ -34,7 +34,7 @@ class Ui_WelcomeMenu(object):
 
     def retranslateUi(self, WelcomeMenu):
         _translate = QtCore.QCoreApplication.translate
-        WelcomeMenu.setWindowTitle(_translate("WelcomeMenu", "Dialog"))
+        WelcomeMenu.setWindowTitle(_translate("WelcomeMenu", "Voting Machine"))
         self.pushButton.setText(_translate("WelcomeMenu", "Vote"))
         self.pushButton_2.setText(_translate("WelcomeMenu", "See Results"))
         self.label.setText(_translate("WelcomeMenu", "Vote For Your Next Student Body President"))
