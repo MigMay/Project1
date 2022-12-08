@@ -90,7 +90,7 @@ class Ui_Results(object):
 
     def retranslateUi(self, Results):
         _translate = QtCore.QCoreApplication.translate
-        Results.setWindowTitle(_translate("Results", "Dialog"))
+        Results.setWindowTitle(_translate("Results", "Voting Machine"))
         self.label_15.setText(_translate("Results", "And the winner is..."))
         self.label_17.setText(_translate("Results", "The results are in..."))
         self.label_18.setText(_translate("Results", "1"))
