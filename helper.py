@@ -36,6 +36,11 @@ def readVotes():
 
     return CA_vote, CB_vote, CC_vote
 
+def clearVotes():
+    print("test")
+    with open('votingrecords.csv', 'w', newline='') as csv_file:
+        pass
+
 def main():
     var, var2, var3 = readVotes()
 
