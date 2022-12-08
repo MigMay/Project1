@@ -1,8 +1,3 @@
-"""
-be able to change image, h1 and body based off which candidate is selected
-
-"""
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
