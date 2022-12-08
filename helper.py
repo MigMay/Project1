@@ -1,17 +1,3 @@
-"""
-
-this file will manage the csv file only
-
-store and retrieve data from here
-
-once start another, rewrite the csv file.
-
-testing
-from welcom
-if no data in csv, then raise exception
-- try exept handler in controller
-
-"""
 import csv
 from results import *
 def logVote(vote_list):
