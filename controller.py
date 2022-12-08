@@ -141,7 +141,6 @@ class CandidateMenu(QWidget):
             self.ui.radioButton_3.setAutoExclusive(True)
 
         vote_list = [CA_vote, CB_vote, CC_vote]
-        print(f'votes{CA_vote}{CB_vote}{CC_vote}')
         logVote(vote_list)
         #self.candidate_menu.close
         #self.vote_submitted.show
