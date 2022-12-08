@@ -194,7 +194,7 @@ class Ui_VoteMenu(object):
 
     def retranslateUi(self, VoteMenu):
         _translate = QtCore.QCoreApplication.translate
-        VoteMenu.setWindowTitle(_translate("VoteMenu", "Form"))
+        VoteMenu.setWindowTitle(_translate("VoteMenu", "Voting Machine"))
         self.label_15.setText(_translate("VoteMenu", "Let\'s start voting..."))
         self.label_16.setText(_translate("VoteMenu", "You are apart of the College of IS&T voting pool. Please select your vote below. "))
         self.pushButton_9.setText(_translate("VoteMenu", "Submit Vote"))
