@@ -1,11 +1,15 @@
 import csv
 from results import *
-def logVote(vote_list):
 
-    with open('votingrecords.csv', 'a', newline='') as csv_file:
-        #fieldnames = ['Jeane', 'Edwin', 'Patricia']
-        csv_writer = csv.writer(csv_file)
-        csv_writer.writerow(vote_list)
+def logVote(vote_list):
+    while True:
+        try:
+            with open('votingrecords3.csv', 'a', newline='') as csv_file:
+                csv_writer = csv.writer(csv_file)
+                csv_writer.writerow(vote_list)
+
+        except FileNotFoundError:
+            print("File does not exist!")
 
 def readVotes():
     CA_vote = 0
@@ -23,7 +27,6 @@ def readVotes():
     return CA_vote, CB_vote, CC_vote
 
 def clearVotes():
-    print("test")
     with open('votingrecords.csv', 'w', newline='') as csv_file:
         pass
 
