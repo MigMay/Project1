@@ -35,7 +35,7 @@ class Ui_viewdetails(object):
 
     def retranslateUi(self, viewdetails):
         _translate = QtCore.QCoreApplication.translate
-        viewdetails.setWindowTitle(_translate("viewdetails", "Form"))
+        viewdetails.setWindowTitle(_translate("viewdetails", "Voting Machine"))
         self.label_26.setText(_translate("viewdetails", "Patricia A. Spiegel"))
         self.label_27.setText(_translate("viewdetails", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus feugiat in ante metus. Et netus et malesuada fames. Aliquam sem et tortor consequat. Placerat in egestas erat imperdiet. Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim. Nam aliquam sem et tortor consequat id. Nibh venenatis cras sed felis eget velit. Scelerisque felis imperdiet proin fermentum leo vel orci porta non. Diam maecenas sed enim ut. Semper viverra nam libero justo."))
 
