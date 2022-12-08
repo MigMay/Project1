@@ -1,21 +1,17 @@
 import csv
 from results import *
+from PyQt5 import QtWidgets
 
 def logVote(vote_list):
-    while True:
-        try:
-            with open('votingrecords3.csv', 'a', newline='') as csv_file:
-                csv_writer = csv.writer(csv_file)
-                csv_writer.writerow(vote_list)
-
-        except FileNotFoundError:
-            print("File does not exist!")
+    with open('votingrecords.csv', 'a', newline='') as csv_file:
+        csv_writer = csv.writer(csv_file)
+        csv_writer.writerow(vote_list)
 
 def readVotes():
     CA_vote = 0
     CB_vote = 0
     CC_vote = 0
-
+    # change filename to test error message
     with open('votingrecords.csv', 'r', newline='') as csv_file:
         csv_reader = csv.reader(csv_file)
 
@@ -29,9 +25,3 @@ def readVotes():
 def clearVotes():
     with open('votingrecords.csv', 'w', newline='') as csv_file:
         pass
-
-def main():
-    var, var2, var3 = readVotes()
-
-
-main()
