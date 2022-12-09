@@ -21,6 +21,7 @@ class MainController:
         self.candidate_details = CandidateDetails()
         self.results = Results()
         self.set_up_signals_and_slots()
+        clearVotes()
         self.welcome_menu.show()
         self.welcome_menu.ui.pushButton_2.setEnabled(False)
 
@@ -59,8 +60,6 @@ class MainController:
         )
         #submit vote button
         self.candidate_menu.ui.pushButton_9.clicked.connect(self.candidate_menu.submitVote)
-        self.candidate_menu.ui.pushButton_9.clicked.connect(lambda: self.candidate_menu.submitVote())
-        self.candidate_menu.ui.pushButton_9.clicked.connect(lambda: self.candidate_menu.submitVote())
         self.candidate_menu.ui.pushButton_9.clicked.connect(lambda: self.welcome_menu.ui.pushButton_2.setEnabled(True))
         self.candidate_menu.ui.pushButton_9.clicked.connect(self.candidate_menu.close)
         self.candidate_menu.ui.pushButton_9.clicked.connect(self.welcome_menu.show)
@@ -76,15 +75,18 @@ class MainController:
         self.results.ui.pushButton_8.clicked.connect(clearVotes)
         self.results.ui.pushButton_8.clicked.connect(lambda: self.welcome_menu.ui.pushButton_2.setEnabled(False))
         self.results.ui.pushButton_9.clicked.connect(self.results.close)
+        self.results.ui.pushButton_9.clicked.connect(clearVotes)
 
 
 class WelcomeMenu(QWidget):
+    """
+    Contains methods for welcome menu window
+    """
 
     def __init__(self, *args, **kwargs):
         """
          Initialize Welcome Menu
 
-         :param amount:
          """
         super().__init__(*args, **kwargs)
         self.ui = Ui_WelcomeMenu()
@@ -94,16 +96,17 @@ class WelcomeMenu(QWidget):
     def setUpSignalsAndSlots(self):
         """
         set up signals and slots for welcome menu
-        :param amount:
         """
         pass
 
 
 class CandidateMenu(QWidget):
+    """
+    Contains methods for candidate menu window
+    """
     def __init__(self, *args, **kwargs):
         """
         initial candidate menu
-        :param amount:
         """
         super().__init__(*args, **kwargs)
         self.ui = Ui_VoteMenu()
@@ -113,11 +116,15 @@ class CandidateMenu(QWidget):
     def setUpSignalsAndSlots(self):
         """
         set up signals and slots for welcome menu
-        :param amount:
+
         """
         pass
 
     def submitVote(self):
+        """
+        method that submits votes
+
+        """
         CA_vote = 0
         CB_vote = 0
         CC_vote = 0
@@ -150,6 +157,9 @@ class CandidateMenu(QWidget):
 
 
 class CandidateDetails(QWidget):
+    """
+    Contains methods for candidate details window
+    """
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -162,6 +172,11 @@ class CandidateDetails(QWidget):
         pass
 
     def updateDetails(self, candidate_name, candidate_image):
+        """
+        changes the widgets for candidate details window
+
+        param: candidate_name and candidate_image
+        """
         self.ui.label_26.setText(candidate_name)
         self.ui.label_23.setPixmap(QtGui.QPixmap(candidate_image))
 
@@ -188,6 +203,10 @@ class Results(QWidget):
         pass
 
     def updateResults(self):
+        """
+        updates the content of the widgets on the results page
+
+        """
         try:
             CA_vote, CB_vote, CC_vote = readVotes()
 
